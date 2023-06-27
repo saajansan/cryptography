@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>User Login</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <h2 class="login-title">Log in</h2>
+
+    <form action="{{ url_for('fileList') }}" method="POST" class="login-form">
+      <div>
+        <label for="name">Username</label>
+        <input
+               id="username"
+               type="text"
+               placeholder="Username"
+               name="username"
+               />
+      </div>
+      <div>
+        <label for="password">Password </label>
+        <input
+               id="password"
+               type="password"
+               placeholder="Password"
+               name="password"
+               />
+      </div>
+      
+      <button class="btn btn--form" type="submit" value="Log in">
+        Log in
+      </button>
+      <a class="new-user" href="{{ url_for('addNewuser') }}">Create a new user</a>
+    </form>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

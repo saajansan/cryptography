@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>New User</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <h2 class="login-title">Add New User</h2>
+	<form id="addUserForm" class="login-form">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<input class="btn btn--form" type="submit" value="Add me">
+	</form>
+    </div>
+	<script>
+		const form = document.getElementById('addUserForm');
+		form.addEventListener('submit', (event) => {
+			event.preventDefault(); // prevent form from submitting
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			const xhr = new XMLHttpRequest();
+			xhr.open('POST', '/addUser'); // change to your backend URL
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.send(JSON.stringify({ username, password }));
+			xhr.onload = () => {
+				if (xhr.status === 200) {
+					alert('User added successfully!');
+				} else {
+					alert('Error adding user');
+				}
+			};
+		});
+	</script>
+</body>
+</html>

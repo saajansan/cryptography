@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Upload PDF File</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="upload">
+      <h1>Upload PDF File</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+          <input type="file" name="pdf_file" accept=".pdf" required>
+          <br><br>
+          <input class="new-user" type="submit" value="Upload">
+      </form>
+    </div>
+  </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>User Login</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+  <div class="screen-view">
+    <h1>Data List</h1>
+    <a class="btn btn--form" href="{{ url_for('login_submit') }}">Return to home page</a>
+    <a class="btn btn--form" href="{{ url_for('about') }}">About</a>
+    <a class="btn btn--form" href="{{ url_for('upload') }}">Upload</a>
+    <ul>
+      {% for item in data %}
+      <li><a download="file:///{{item['abs_path']}}" class="{{'folder-icon' if item['is_dir'] else 'file-icon'}}"
+          href="file:///{{item['abs_path']}}">{{item['name']}}</a>
+        <div><strong>File Size:</strong>{{item['size'] }} <span>Bytes</span></div>
+        <div><strong>File Created:</strong>{{item['created']}}</div>
+        <div><strong>File Modified:</strong>{{item['modified']}}</div>
+        <div><strong>File Path:</strong>{{item['abs_path']}}</div>
+        <div>{{item['type']}}</div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</body>
+
+</html>

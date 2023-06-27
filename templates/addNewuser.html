@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>New User</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+    <h2 class="login-title">Add New User</h2>
+	<form id="addUserForm" class="login-form" action="{{ url_for('submit') }}" method="post">
+		<label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Username" >
+        <label for="email">Email: <span>Optional</span></label>
+        <input type="email" id="email" name="email" placeholder="Email">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password">
+        <button class="btn btn--form" type="submit">Submit</button>
+        <a class="new-user" href="{{ url_for('login_submit') }}">Back to Login</a>
+	</form>
+    </div>
+</body>
+</html>
